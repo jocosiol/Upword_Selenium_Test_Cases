@@ -1,8 +1,6 @@
 import unittest
 from selenium import webdriver
 import page
-from selenium.webdriver.common.by import By
-
 
 
 
@@ -19,12 +17,11 @@ class UpwordTest(unittest.TestCase):
 
     def test_signup(self):
         loginPage = page.LoginPage(self.driver)
-        loginPage.driver.find_element(By.LINK_TEXT, "Signup").click()
+        loginPage.click_signup_link()
 
         #loginPage.click_login_button()
 
-        signupPage = page.SignupPage(self.driver)
-        print(self.driver.title)
+        #signupPage = page.SignupPage(self.driver)
         # assert signupPage.is_on_signup_page()
 
     def tearDown(self):
