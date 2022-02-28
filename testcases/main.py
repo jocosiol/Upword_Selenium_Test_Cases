@@ -4,14 +4,14 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import page
 
-
-
 class UpwordTest(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         s = Service("/Users/javiercosio/Documents/UPWORD/Upword_Selenium_Test_Cases/chromedriver")
         self.driver = webdriver.Chrome(service=s)
         self.driver.get("https://app.upword.ai/login")
+
 
     # def test_check_page_title(self):
     #     loginPage = page.LoginPage(self.driver)
@@ -20,12 +20,17 @@ class UpwordTest(unittest.TestCase):
 
     def test_signup(self):
         loginPage = page.LoginPage(self.driver)
+        self.driver.implicitly_wait(10)
         loginPage.click_signup_link()
+        self.driver.implicitly_wait(10)
         signupPage = page.SignupPage(self.driver)
+        self.driver.implicitly_wait(10)
         assert signupPage.is_on_signup_page()
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(self):
         self.driver.close()
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
