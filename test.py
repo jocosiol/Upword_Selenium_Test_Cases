@@ -20,19 +20,3 @@ my_folder = driver.find_element(by=By.XPATH, value="//*[@id='nav-drawer']/div[1]
 my_folder.click()
 
 
-
-
-
-# try:
-#     element = WebDriverWait(driver, 10).until(
-#         EC.presence_of_element_located((By.LINK_TEXT, "Signup"))
-#     )
-#     element.click()
-
-#     driver.back()
-
-#     driver.forward()
-
-
-# except:
-#     driver.quit()
