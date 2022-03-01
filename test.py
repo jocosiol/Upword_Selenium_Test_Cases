@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 
 
-class UpwordNewUrl(unittest.TestCase):
+class Upword(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
