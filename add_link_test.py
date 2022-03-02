@@ -30,6 +30,7 @@ class Upword(unittest.TestCase):
         self.driver.find_element(by=By.XPATH, value="//*[@id='nav-drawer']/div[1]/div[5]/div[2]/div/div/div[1]/div/div[2]/div[6]").click()
         self.actionChains.context_click(self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div/div/main/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div/div/div[3]/div[2]")).perform()
         self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div/div/main/div/div[1]/div[2]/div/ul[1]/div/div/div/div[4]").click()
+        
 
     @classmethod
     def tearDownClass(self):
