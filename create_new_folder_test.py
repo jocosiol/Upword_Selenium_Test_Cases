@@ -61,6 +61,25 @@ class Upword(unittest.TestCase):
         self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/ul[1]/div/div/div/div[3]").click()
         time.sleep(3)
 
+    def test_create_subfolder_by_rigth_click(self):
+        self.actionChains.context_click(self.actionChains.move_by_offset(600,150).perform()).perform()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/ul[2]/div").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[3]/div/div/form/div[1]/div/div/div[1]/div/input").send_keys("DD - Test Folder from Rigth Click")
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[3]/div/div/form/div[2]/button[2]").click()
+        time.sleep(3)
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div/div/div[1]/div[2]/div[2]").click()
+        time.sleep(3)
+        self.actionChains.context_click(self.actionChains.move_by_offset(600,150).perform()).perform()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/ul[2]/div").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[3]/div/div/form/div[1]/div/div/div[1]/div/input").send_keys("dd - Test Subfolder from Rigth Click")
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[3]/div/div/form/div[2]/button[2]").click()
+        time.sleep(2)
+        assert self.driver.find_elements(by=By.XPATH, value="//*[contains(text(), 'dd - Test Subfolder from Rigth Click')]")
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/div[1]/div/div[1]/ul/li[1]/div").click()
+        time.sleep(2)
+        self.actionChains.context_click(self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/div[1]/div/div[2]/div/div/div/div[1]/div[2]/div[2]")).perform()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div/main/div/div[1]/div[2]/div/ul[1]/div/div/div/div[3]").click()
+        time.sleep(3)
 
     @classmethod
     def tearDownClass(self):
